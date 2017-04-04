@@ -5,8 +5,8 @@ import unittest
 class NewVisitorTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
-        self.browser.implicitly_wait(10)
+        self.browser = webdriver.Chrome('C:\\MikeData\\study\\TDD\\superlists\\chromedriver.exe')
+        self.browser.implicitly_wait(150)
 
     def tearDown(self):
         self.browser.quit()
