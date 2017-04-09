@@ -7,7 +7,7 @@ class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Chrome('C:\\MikeData\\study\\TDD\\superlists\\chromedriver.exe')
-        self.browser.implicitly_wait(150)
+        self.browser.implicitly_wait(3)
 
     def tearDown(self):
         self.browser.quit()
@@ -58,7 +58,7 @@ class NewVisitorTest(LiveServerTestCase):
         # Now a new user, Francis, comes along to the site.
         self.browser.quit()
         self.browser = webdriver.Chrome('C:\\MikeData\\study\\TDD\\superlists\\chromedriver.exe')
-        self.browser.implicitly_wait(150)
+        self.browser.implicitly_wait(3)
 
         # Francis visits the home page.  There is no sign of Edith's
         # list
