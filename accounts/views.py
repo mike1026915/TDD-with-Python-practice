@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 
 def login(request):
+    """
     user = authenticate(assertion=request.POST['assertion'])
     if user:
         auth_login(request, user)
@@ -37,7 +38,7 @@ def login(request):
 
         messages.error(request, 'Invalid token')
         return redirect('login')    
-    """
+    
 
 def logout(request):
     auth_logout(request)

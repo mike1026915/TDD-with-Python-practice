@@ -14,5 +14,5 @@ class ListUser(models.Model):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ()
 
-    # def is_authenticated(self):
-        # return True
+    def is_authenticated(self):
+        return True

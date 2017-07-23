@@ -24,7 +24,7 @@
       <h1>Get your access code by email</h1>
       <p>Enter your email address to receive your access code</p>
       <form method="POST" action=".">
-        <input name="email" type="email" placeholder="your@email.com" />
+        <input name="email" type="email" id="authentication_email" placeholder="your@email.com" />
         <input type="submit" value="Get Token" />
         {% csrf_token %}
       </form>
