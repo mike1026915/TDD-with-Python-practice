@@ -1,0 +1,45 @@
+<html>
+  <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>To-Do lists</title>
+        <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/base.css" rel="stylesheet">
+    <head>
+    <body>
+      <center>
+      {% if messages %}
+        <div class="row">
+          <div class="col-md-12">
+            {% for message in messages %}
+            <div class="alert alert-block alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      <h1>Get your access code by email</h1>
+      <p>Enter your email address to receive your access code</p>
+      <form method="POST" action=".">
+        <input name="email" type="email" placeholder="your@email.com" />
+        <input type="submit" value="Get Token" />
+        {% csrf_token %}
+      </form>
+
+
+      <h1>Log in using email access code</h1>
+      <p>Check your email for a code  and enter it here</p>
+      <form method="POST" action=".">
+        <input name="uid" type="text" />
+        <input type="submit" value="Log in" />
+        {% csrf_token %}
+      </form>
+    </center>>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="/static/list.js"></script>
+    </body>
+</html>
+
