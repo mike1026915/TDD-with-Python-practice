@@ -14,14 +14,14 @@
       <nav class="navbar navbar-default" role="navigation">
         <a class="navbar-brand" href="/">Superlists</a>
         {% if user.email %}
-          <p class="navbar-text">Logged in as {{ user.email }}</p>
+          <p class="navbar-text" id="id_login_info">Logged in as {{ user.email }}</p>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="navbar-link" href="{% url 'logout' %}">Log out</a></li>
+            <li><a class="navbar-link" id="id_logout"  href="{% url 'logout' %}">Log out</a></li>
           </ul>
         {% else %}
           <form class="navbar-form navbar-right" method="POST" action="{% url 'login' %}">
             <span>Enter email to log in:</span>
-            <input class="form-control" name="email" type="text" />
+            <input class="form-control" name="email" id="id_login" type="text" />
             {% csrf_token %}
           </form>
         {% endif %}
