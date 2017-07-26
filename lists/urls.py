@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^$', views.home_page, name='home'),
     url(r'^(\d+)/$', 'lists.views.view_list', name='view_list'),
     url(r'^new$', views.new_list, name='new_list'),
+    url(r'^users/(.+)/$', views.my_lists, name='my_lists'),
 ]
