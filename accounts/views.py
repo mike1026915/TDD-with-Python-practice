@@ -15,9 +15,10 @@ def login(request):
     return HttpResponse('OK')
     """
     if request.method == 'GET':
-        return render(request, 'login.html')
+        return redirect('/')
     if request.method == 'POST':
-        email = request.POST.get('email')
+        email = request.POST.get('email').strip()
+        """
         if email:
             token = Token.objects.create(email=email)
             send_mail(
@@ -28,16 +29,15 @@ def login(request):
             )
             messages.success(request, 'Email sent to {}'.format(email))
             return redirect('login')
-
-        #user = PasswordlessAuthenticationBackend().authenticate(uid=request.POST.get('uid').strip())
-        user = authenticate(uid=request.POST.get('uid').strip())
+        """
+        user = authenticate(email=email)
         if user:
             auth_login(request, user)
             messages.success(request, 'Logged in as {}'.format(user.email))
             return redirect('/')
 
         messages.error(request, 'Invalid token')
-        return redirect('login')    
+        return redirect('/')    
     
 
 def logout(request):

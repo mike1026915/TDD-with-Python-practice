@@ -3,6 +3,7 @@ from accounts.models import ListUser, Token
 
 class PasswordlessAuthenticationBackend(object):
 
+    """
     def authenticate(self, uid):
         try:
             token = Token.objects.get(uid=uid)
@@ -11,8 +12,16 @@ class PasswordlessAuthenticationBackend(object):
             return None
         except ListUser.DoesNotExist:
             return ListUser.objects.create(email=token.email)
+    """
+
+    def authenticate(self, email):
+        try:
+            return self.get_user(email)
+        except Token.DoesNotExist:
+            return None
+        except ListUser.DoesNotExist:
+            return ListUser.objects.create(email=email)
 
 
     def get_user(self, email):
-        user = ListUser.objects.get(email=email)
-        return user
+        return ListUser.objects.get(email=email)

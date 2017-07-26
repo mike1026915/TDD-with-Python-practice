@@ -11,15 +11,21 @@
 
     <div class="container">
 
-        <nav class="navbar navbar-default" role="navigation">
-            <a class="navbar-brand" href="/">Superlists</a>
-            {% if user.email %}
-                <a class="btn navbar-btn navbar-right" id="id_logout" href="#">Log out</a>
-                <span class="navbar-text navbar-right">Logged in as {{ user.email }}</span>
-            {% else %}
-                <a class="btn navbar-btn navbar-right" id="id_login" href="{% url 'login' %}">Sign in</a>
-            {% endif %}
-        </nav>
+      <nav class="navbar navbar-default" role="navigation">
+        <a class="navbar-brand" href="/">Superlists</a>
+        {% if user.email %}
+          <p class="navbar-text">Logged in as {{ user.email }}</p>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-link" href="{% url 'logout' %}">Log out</a></li>
+          </ul>
+        {% else %}
+          <form class="navbar-form navbar-right" method="POST" action="{% url 'login' %}">
+            <span>Enter email to log in:</span>
+            <input class="form-control" name="email" type="text" />
+            {% csrf_token %}
+          </form>
+        {% endif %}
+      </nav>
 
 
         <div class="row">
