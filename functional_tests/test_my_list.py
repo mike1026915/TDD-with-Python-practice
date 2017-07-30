@@ -5,7 +5,7 @@ from django.contrib.sessions.backends.db import SessionStore
 
 from .base import FunctionalTest
 
-
+import os
 class MyListsTest(FunctionalTest):
 
     def create_pre_authenticated_session(self, email):
@@ -20,7 +20,7 @@ class MyListsTest(FunctionalTest):
         self.browser.add_cookie(dict(
             name=settings.SESSION_COOKIE_NAME,
             value=session.session_key, #2
-            path='/',
+            path=os.getcwd(),
         ))
 
     def test_logged_in_users_lists_are_saved_as_my_lists(self):
