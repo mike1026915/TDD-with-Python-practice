@@ -6,7 +6,8 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     @classmethod
     def setUp(self):
-        self.browser = webdriver.Chrome('C:\\MikeData\\study\\TDD\\superlists\\chromedriver.exe')
+        #self.browser = webdriver.Chrome('C:\\MikeData\\study\\TDD\\superlists\\chromedriver.exe')
+        self.browser = webdriver.PhantomJS()
         self.browser.implicitly_wait(3)
 
     def tearDown(self):
