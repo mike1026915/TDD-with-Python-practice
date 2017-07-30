@@ -20,7 +20,8 @@ class MyListsTest(FunctionalTest):
         self.browser.add_cookie(dict(
             name=settings.SESSION_COOKIE_NAME,
             value=session.session_key, #2
-            path=os.getcwd(),
+            path='/',
+            domain='tdd-superlist.herokuapp.com'
         ))
 
     def test_logged_in_users_lists_are_saved_as_my_lists(self):
