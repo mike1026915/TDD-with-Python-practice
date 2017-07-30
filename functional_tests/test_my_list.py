@@ -22,7 +22,7 @@ class MyListsTest(FunctionalTest):
             name=settings.SESSION_COOKIE_NAME,
             value=session.session_key, #2
             path='/',
-            domain='*.herokuapp.com'
+            domain='.herokuapp.com'
         ))
         self.browser.get(self.live_server_url + "/404_no_such_url/")
 
